@@ -6,9 +6,9 @@
 
 // Greeter.js
 import React, {Component} from 'react'
-import config from './config.json'
+import config from '../data/config.json'
 
-import styles from  './css/greeter.css'
+import styles from  '../sass/greeter.scss'
 
 class Greeter extends Component {
     render() {

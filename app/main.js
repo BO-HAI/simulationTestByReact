@@ -7,8 +7,8 @@
 //main.js
 import React from 'react';
 import {render} from 'react-dom';
-import Greeter from './Greeter';
+import Greeter from './modules/greeter';
 
-import './css/main.css'
+import './sass/main.scss'
 
 render(<Greeter />, document.getElementById('root'));

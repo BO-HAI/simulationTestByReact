@@ -1,5 +1,7 @@
 #simulationTestByReact
 
-## 环境搭建
+#### 环境运行
 
-webpack
+```
+npm start
+```
