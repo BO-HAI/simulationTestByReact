@@ -8,7 +8,6 @@
 //var node_modules = path.resolve(__dirname, 'node_modules');
 //var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
 
-
 module.exports = {
     // 配置生成Source Maps，选择合适的选项
     devtool: 'eval-source-map',
@@ -63,16 +62,21 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css?modules!sass?config=otherSassLoaderConfig'
+                loader: 'style!css?modules!postcss?!sass?config=otherSassLoaderConfig'
             },
             {
                 test: /\.(png|jpg)/,
                 loader: 'url?limit=25000'
             }
-        ],
-        noParse: []
+        ]
     },
-
+    postcss: [
+        require('autoprefixer'),//调用autoprefixer插件
+        require('postcss-assets')({
+            basePath: 'build/',
+            loadPaths: ['images/']
+        })
+    ],
     sassLoader: {
         includePaths:[
             __dirname + "/app/sass",

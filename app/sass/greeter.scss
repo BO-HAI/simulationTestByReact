@@ -13,3 +13,11 @@
     padding: 10px;
     border: 3px solid #ccc;
 }
+
+.icon {
+    //background: url(../images/1206070.png);
+    width: width('1206070.png');
+    height: height('1206070.png');
+    background: resolve('1206070.png');
+    display: flex
+}
