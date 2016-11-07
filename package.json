@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "node.normalize.scss": "^3.0.3",
     "webpack": "^1.13.3"
   },
   "devDependencies": {
@@ -14,6 +15,7 @@
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.24.1",
     "json-loader": "^0.5.4",
     "node-sass": "^3.11.1",
     "postcss-assets": "^4.1.0",

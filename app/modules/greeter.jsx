@@ -5,9 +5,10 @@
  */
 
 // Greeter.js
-import React, {Component} from 'react'
-import config from '../data/config.json'
+import React, {Component} from 'react';
+import config from '../data/config.json';
 
+import Login from './login.jsx';
 import styles from  '../sass/greeter.scss'
 
 class Greeter extends Component {
@@ -16,6 +17,7 @@ class Greeter extends Component {
             <div className={styles.root}>
                 <span className={styles.icon}></span>
                 {config.greetText}
+                <Login/>
             </div>
         );
     }

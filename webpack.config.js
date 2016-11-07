@@ -62,7 +62,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css?modules!postcss?!sass?config=otherSassLoaderConfig'
+                loader: 'style!css?modules!postcss!sass?sourceMap:true'
             },
             {
                 test: /\.(png|jpg)/,
@@ -79,14 +79,15 @@ module.exports = {
     ],
     sassLoader: {
         includePaths:[
-            __dirname + "/app/sass",
-            __dirname + "/app/images"
-        ]
+            __dirname + '/app/sass'
+        ],
+        outputStyle: 'compressed',
+        sourceMap: true
     },
 
-    otherSassLoaderConfig: {
-
-    },
+    //otherSassLoaderConfig: {
+    //    outputStyle: 'compressed'
+    //},
 
     devServer: {
         contentBase: "./build",//本地服务器所加载的页面所在的目录
