@@ -6,3 +6,5 @@
 npm install
 npm start
 ```
+
+image-size-loader

@@ -29,7 +29,8 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --progress --profile --colors --config webpack.production.config.js",
+    "start": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build"
   },
   "repository": {

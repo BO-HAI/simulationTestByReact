@@ -20,6 +20,7 @@ class Login extends Component {
                         1
                     </p>
                 </div>
+                <img src="../images/wifi.png" alt=""/>
             </form>
         );
     }

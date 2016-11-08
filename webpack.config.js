@@ -36,25 +36,24 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015','react']
-                }
-            },
-            {
-                test: /\.jsx?$/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015','react']
-                }
+                loader: 'babel'
+                //, query: {
+                //    presets: ['es2015','react'],
+                //    plugins: [
+                //        'transform-react-jsx-img-import'
+                //    ]
+                //}
             },
             {
                 test: /\.jsx/,
                 exclude: /node_modules/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015','react']
-                }
+                loader: 'babel'
+                //, query: {
+                //    presets: ['es2015','react'],
+                //    plugins: [
+                //        'transform-react-jsx-img-import'
+                //    ]
+                //}
             },
             {
                 test: /\.css$/,
@@ -73,7 +72,7 @@ module.exports = {
     postcss: [
         require('autoprefixer'),//调用autoprefixer插件
         require('postcss-assets')({
-            basePath: 'build/',
+            basePath: 'app/',
             loadPaths: ['images/']
         })
     ],

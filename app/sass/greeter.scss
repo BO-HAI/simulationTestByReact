@@ -14,10 +14,15 @@
 //    border: 3px solid #ccc;
 //}
 
+body {
+    background: url(../images/bg.jpg);
+    background-size: cover;
+}
+
 .icon {
     //background: url(../images/1206070.png);
     width: width('wifi.png');
     height: height('wifi.png');
-    background: resolve('wifi.png');
+    background: url(../images/wifi.png);
     display: flex
 }
