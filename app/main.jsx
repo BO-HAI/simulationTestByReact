@@ -7,9 +7,9 @@
 //main.js
 import React from 'react';
 import {render} from 'react-dom';
-import Greeter from './modules/greeter.jsx';
+import Form from './modules/Form/form.jsx';
 
 
 import './sass/main.scss'
 
-render(<Greeter />, document.getElementById('root'));
+render(<Form action="./login"/>, document.getElementById('root'));

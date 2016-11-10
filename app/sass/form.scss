@@ -6,20 +6,31 @@
 
 .form {
     width: 500px;
+
+    .form-group {
+        height: 36px;
+        width: 100%;
+    }
+
+    .form-group-label {
+        width: 100px;
+        text-align: right;
+        display: inline-block;
+    }
+
+    .form-group-error {
+        color: red;
+        display: none;
+    }
+
+    input {
+        height: 36px;
+        width: 150px;
+    }
+
+    .errInput {
+        border: 1px solid red;
+    }
 }
 
-.form-group {
-    height: 36px;
-    width: 100%;
-}
 
-.form-group-label {
-    width: 100px;
-    text-align: right;
-    display: inline-block;
-}
-
-.form-group-error {
-    color: red;
-    display: none;
-}

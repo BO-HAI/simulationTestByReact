@@ -18,7 +18,9 @@ class Greeter extends Component {
     render() {
         return (
             <div>
-                <span className={cns(styles.icon, styles.a)}></span>
+                <span className={cns(styles.icon, styles.a)}>
+
+                </span>
                 {config.greetText}
                 <Login/>
             </div>
