@@ -4,7 +4,9 @@
 
 ```
 npm install
-npm start
+npm dev
 ```
+
+localhost:8082
 
 image-size-loader

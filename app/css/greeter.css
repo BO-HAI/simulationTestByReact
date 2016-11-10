@@ -1,7 +1,11 @@
-.root {
-    text-align: center;
-    font-size: 50px;
-    background-color: #eee;
-    padding: 10px;
-    border: 3px solid #ccc;
+body {
+    background: url(/bg.jpg);
+    background-size: cover;
+}
+
+.icon {
+    width: width('wifi.png');
+    height: height('wifi.png');
+    background: url(/wifi.png);
+    display: flex
 }

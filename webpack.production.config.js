@@ -4,26 +4,21 @@
  * @date: 16/11/2
  */
 
-var path = require('path');
-var node_modules_dir = path.resolve(__dirname, 'node_modules');
-var pathToReact = path.resolve(node_modules_dir, 'react/dist/react.min.js');
+//var path = require('path');
+//var node_modules = path.resolve(__dirname, 'node_modules');
+//var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
+
+//const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     // 配置生成Source Maps，选择合适的选项
     devtool: 'eval-source-map',
     // 入口
-    //entry:  [
-    //    __dirname + "/app/main.jsx"
-    //],
-    entry: {
-        app: path.resolve(__dirname, 'app/main.jsx'),
-
-        // Since react is installed as a node module, node_modules/react,
-        // we can point to it directly, just like require('react');
-        // 当 React 作为一个 node 模块安装的时候，
-        // 我们可以直接指向它，就比如 require('react')
-        vendors: ['react']
-    },
+    entry:  [
+        'webpack/hot/dev-server',
+        'webpack-dev-server/client?http://localhost:8082',
+        __dirname + "/app/main.jsx"
+    ],
     // 出口
     output: {
         path: __dirname + "/build",
@@ -43,25 +38,18 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015','react']
-                }
-            },
-            {
-                test: /\.jsx?$/,
                 loader: 'babel'
                 //, query: {
-                //    presets: ['es2015','react']
+                //    presets: ['es2015','react'],
+                //    plugins: [
+                //        'transform-react-jsx-img-import'
+                //    ]
                 //}
             },
             {
                 test: /\.jsx/,
                 exclude: /node_modules/,
                 loader: 'babel'
-                //, query: {
-                //    presets: ['es2015','react']
-                //}
             },
             {
                 test: /\.css$/,
@@ -72,8 +60,12 @@ module.exports = {
                 loader: 'style!css?modules!postcss!sass?sourceMap:true'
             },
             {
-                test: /\.(png|jpg)/,
+                test: /\.png$/,
                 loader: 'url?limit=25000'
+            },
+            {
+                test: /\.jpg$/,
+                loader: 'file'
             }
         ]
     },
@@ -91,5 +83,4 @@ module.exports = {
         outputStyle: 'compressed',
         sourceMap: true
     }
-
 };

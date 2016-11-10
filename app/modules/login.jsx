@@ -2,6 +2,8 @@
 import React, {Component} from 'react';
 import Styles from '../sass/form.scss';
 
+import imgSrc from '../images/wifi.png';
+
 class Login extends Component {
     render() {
         return (
@@ -20,7 +22,7 @@ class Login extends Component {
                         1
                     </p>
                 </div>
-                <img src="../images/wifi.png" alt=""/>
+                <img src={imgSrc} alt=""/>
             </form>
         );
     }

@@ -8,6 +8,8 @@
 //var node_modules = path.resolve(__dirname, 'node_modules');
 //var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
 
+//const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
     // 配置生成Source Maps，选择合适的选项
     devtool: 'eval-source-map',
@@ -48,12 +50,6 @@ module.exports = {
                 test: /\.jsx/,
                 exclude: /node_modules/,
                 loader: 'babel'
-                //, query: {
-                //    presets: ['es2015','react'],
-                //    plugins: [
-                //        'transform-react-jsx-img-import'
-                //    ]
-                //}
             },
             {
                 test: /\.css$/,
@@ -64,8 +60,12 @@ module.exports = {
                 loader: 'style!css?modules!postcss!sass?sourceMap:true'
             },
             {
-                test: /\.(png|jpg)/,
+                test: /\.png$/,
                 loader: 'url?limit=25000'
+            },
+            {
+                test: /\.jpg$/,
+                loader: 'file'
             }
         ]
     },
