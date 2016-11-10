@@ -6,7 +6,7 @@ class InputUserName extends Component {
         super(props);
         this.state = {
             regexp: /^[0-9A-Za-z_-]+@[0-9A-Za-z_-]+\.[a-z]{2,3}(\.[a-z]{2})?$|^[0-9A-Za-z_]+$/g,
-            inputErrStyle: {}
+            inputErrStyle: ''
         }
     };
 
@@ -15,9 +15,7 @@ class InputUserName extends Component {
         console.log(el);
 
         this.setState({
-            inputErrStyle: {
-                border: '1px solid red'
-            }
+            inputErrStyle: Styles.errInput
         });
     };
 
@@ -27,7 +25,7 @@ class InputUserName extends Component {
                 <label className={Styles['form-group-label']} htmlFor="">
                     用户名：
                 </label>
-                <input ref="userName" style={this.state.inputErrStyle} onFocus={this.validateUserName.bind(this)} name={this.props.name} type="text" placeholder={this.props.placeholder}/>
+                <input ref="userName" className={this.state.inputErrStyle} onFocus={this.validateUserName.bind(this)} name={this.props.name} type="text" placeholder={this.props.placeholder}/>
                 <p className={Styles['form-group-error']}>
 
                 </p>
