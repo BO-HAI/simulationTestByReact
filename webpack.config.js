@@ -4,24 +4,25 @@
  * @date: 16/11/2
  */
 
-//var path = require('path');
-//var node_modules = path.resolve(__dirname, 'node_modules');
-//var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
-
-//const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+var webpack = require('webpack');
+var HtmlwebpackPlugin = require('html-webpack-plugin');
+//定义了一些文件夹的路径
+var ROOT_PATH = path.resolve(__dirname);
+var APP_PATH = path.resolve(ROOT_PATH, 'app');
+var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
     // 配置生成Source Maps，选择合适的选项
     devtool: 'eval-source-map',
     // 入口
-    entry:  [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:8082',
-        __dirname + "/app/main.jsx"
-    ],
+    entry:  {
+        app: path.resolve(APP_PATH, 'main.jsx'),
+        vendors: ['react']
+    },
     // 出口
     output: {
-        path: __dirname + "/build",
+        path: BUILD_PATH,
         filename: "bundle.js"
     },
     //resolve: {
@@ -84,9 +85,12 @@ module.exports = {
         sourceMap: true
     },
 
-    //otherSassLoaderConfig: {
-    //    outputStyle: 'compressed'
-    //},
+    plugins: [
+        //这个使用uglifyJs压缩你的js代码
+        new webpack.optimize.UglifyJsPlugin({minimize: true}),
+        //把入口文件里面的数组打包成verdors.js
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+    ],
 
     devServer: {
         contentBase: "./build",//本地服务器所加载的页面所在的目录
