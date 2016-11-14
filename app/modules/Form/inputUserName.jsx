@@ -10,12 +10,17 @@ class InputUserName extends Component {
         }
     };
 
-    validateUserName(event) {
-        var el = this.refs.userName;
-        console.log(el);
-
+    validateUserName(e) {
+        let el = this.refs.userName;
         this.setState({
             inputErrStyle: Styles.errInput
+        });
+    };
+
+    clearInputStatic(e) {
+        let el = this.refs.username;
+        this.setState({
+            inputErrStyle: ''
         });
     };
 
@@ -25,7 +30,14 @@ class InputUserName extends Component {
                 <label className={Styles['form-group-label']} htmlFor="">
                     用户名：
                 </label>
-                <input ref="userName" className={this.state.inputErrStyle} onFocus={this.validateUserName.bind(this)} name={this.props.name} type="text" placeholder={this.props.placeholder}/>
+                <input
+                    ref="userName"
+                    className={this.state.inputErrStyle}
+                    onFocus={this.validateUserName.bind(this)}
+                    onBlur={this.clearInputStatic.bind(this)}
+                    name={this.props.name} type="text"
+                    placeholder={this.props.placeholder}
+                />
                 <p className={Styles['form-group-error']}>
 
                 </p>

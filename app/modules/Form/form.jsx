@@ -4,6 +4,7 @@ import InputUserName from './inputUserName.jsx';
 import Styles from '../../sass/form.scss'
 
 class Form extends Component {
+
     render() {
         return (
             <form action={this.props.action} className={Styles.form}>
