@@ -7,12 +7,12 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 //定义了一些文件夹的路径
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var TEM_PATH = path.resolve(ROOT_PATH, 'templates');
-
 
 module.exports = {
     // 配置生成Source Maps，选择合适的选项
@@ -25,7 +25,7 @@ module.exports = {
     // 出口
     output: {
         path: BUILD_PATH,
-        filename: "[name].js"
+        filename: "js/[name].js"
     },
     //resolve: {
     //    alias: {
@@ -56,11 +56,13 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style!css?modules'
+                //loader: 'style!css?modules'
+                loader: ExtractTextPlugin.extract('style', 'css?modules')
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css?modules!postcss!sass?sourceMap:true'
+                //loader: 'style!css?modules!postcss!sass?sourceMap:true'
+                loader: ExtractTextPlugin.extract('style', 'css?modules!postcss!sass?sourceMap:true')
             },
             {
                 test: /\.png$/,
@@ -91,7 +93,8 @@ module.exports = {
         //这个使用uglifyJs压缩你的js代码
         new webpack.optimize.UglifyJsPlugin({minimize: true}),
         //把入口文件里面的数组打包成verdors.js
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.js'),
+        new ExtractTextPlugin('css/[name].css'),
         new HtmlwebpackPlugin({
             title: '模拟考试',
             template: path.resolve(TEM_PATH, 'index.html'),
