@@ -64,13 +64,21 @@ module.exports = {
                 //loader: 'style!css?modules!postcss!sass?sourceMap:true'
                 loader: ExtractTextPlugin.extract('style', 'css?modules!postcss!sass?sourceMap:true')
             },
+            //{
+            //    test: /\.png$/,
+            //    loader: 'url?limit=25000'
+            //},
+            //{
+            //    test: /\.jpg$/,
+            //    loader: 'file'
+            //},
             {
-                test: /\.png$/,
-                loader: 'url?limit=25000'
-            },
-            {
-                test: /\.jpg$/,
-                loader: 'file'
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url',
+                query: {
+                    limit: 25000,
+                    name: path.posix.join('/', 'images/[name].[hash:7].[ext]')
+                }
             }
         ]
     },
