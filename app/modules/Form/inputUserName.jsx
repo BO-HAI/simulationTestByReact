@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Styles from '../../sass/form.scss';
+//import Styles from '../../sass/form.scss';
 
 class InputUserName extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class InputUserName extends Component {
     validateUserName(e) {
         let el = this.refs.userName;
         this.setState({
-            inputErrStyle: Styles.errInput
+            inputErrStyle: this.props.styles.errInput
         });
     };
 
@@ -26,19 +26,19 @@ class InputUserName extends Component {
 
     render() {
         return (
-            <div className={Styles['form-group']}>
-                <label className={Styles['form-group-label']} htmlFor="">
+            <div className={this.props.styles['form-group']}>
+                <label className={this.props.styles['form-group-label']} htmlFor="">
                     用户名：
                 </label>
                 <input
                     ref="userName"
                     className={this.state.inputErrStyle}
-                    onFocus={this.validateUserName.bind(this)}
-                    onBlur={this.clearInputStatic.bind(this)}
+                    onFocus={this.clearInputStatic.bind(this)}
+                    onBlur={this.validateUserName.bind(this)}
                     name={this.props.name} type="text"
                     placeholder={this.props.placeholder}
                 />
-                <p className={Styles['form-group-error']}>
+                <p className={this.props.styles['form-group-error']}>
 
                 </p>
             </div>
